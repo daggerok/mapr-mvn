@@ -1,9 +1,7 @@
-MapR practice skeleton (mvn)
-============================
-    # do some code...
+MapR practice (mvn)
+===================
+    $ git clone https://github.com/daggerok/mapr-mvn.git mapr --depth=1 && cd mapr
     $ mvn clean package
-    $ scp mapreduce-$n/target/mapreduce-$n-1.0-jar-with-dependencies.jar user01@maprdemo:~/mapreduce-$n.jar
-    $ ssh user01@maprdemo
-    $ hadoop -jar mapreduce-$n.jar ...
+    $ java -jar mapreduce-1/target/mapreduce-1-1.0-jar-with-dependencies.jar mapreduce-1/src/test/resources/receipts.txt mapreduce-1/target/result
 
 where $n is example project number
