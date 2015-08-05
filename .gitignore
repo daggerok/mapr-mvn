@@ -1,0 +1,8 @@
+# maven
+**/target/
+# idea
+**/.idea/
+**/*.iml
+# os hidden
+**/Thumbs.db
+**/.DS_Store
