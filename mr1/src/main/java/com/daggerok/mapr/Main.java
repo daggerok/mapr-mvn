@@ -33,12 +33,12 @@ public class Main extends Configured implements Tool {
         }
 
         String input = args[0];
-        String output = args[1];
-
         if (Files.notExists(Paths.get(input))) {
             log.error("input file isn't found.");
             System.exit(-2);
         }
+        
+        String output = args[1];
         try {
             Files.deleteIfExists(Paths.get(output));
         } catch (IOException e) {
@@ -52,18 +52,16 @@ public class Main extends Configured implements Tool {
 
     private int job(String input, String output) throws Exception {
         Job job = new Job(getConf(), Main.class.getName());
-
+        // config driver, mapper, reducer, input format and output key/value types
         job.setJarByClass(Main.class);
         job.setMapperClass(Mapper.class);
         job.setReducerClass(Reducer.class);
         job.setInputFormatClass(TextInputFormat.class);
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(Text.class);
-
         // setup input and output paths
         FileInputFormat.addInputPath(job, new Path(input));
         FileOutputFormat.setOutputPath(job, new Path(output));
-
         // launch job synchronously
         return job.waitForCompletion(true) ? 0 : 1;
     }
