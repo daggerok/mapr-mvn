@@ -12,3 +12,5 @@ now try with hadoop:
     $ ssh user01@maprdemo
     $ hadoop jar mr1.jar input result # run job (should done much faster)
     $ cat result/part-r-00000 # check result
+
+get more information about MapR here: https://www.mapr.com/
